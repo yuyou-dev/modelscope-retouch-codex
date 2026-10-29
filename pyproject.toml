@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modelscope-jewelry-retouch-mcp"
+version = "0.1.0"
+description = "ModelScope hosted jewelry retouch MCP"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.30.0", "httpx==0.28.1", "Pillow==11.3.0", "uvicorn>=0.35,<1"]
+
+[project.scripts]
+modelscope-jewelry-retouch-mcp = "hosted_entry:main"
+
+[tool.setuptools]
+py-modules = ["hosted_entry", "server", "retouch"]
