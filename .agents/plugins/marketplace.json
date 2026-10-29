@@ -1,0 +1,11 @@
+{
+  "name": "modelscope-retouch-cloud",
+  "interface": {"displayName": "魔搭云端精修"},
+  "plugins": [{
+    "name": "modelscope-retouch",
+    "source": {"source": "local", "path": "./plugins/modelscope-retouch"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Design",
+    "interface": {"displayName": "魔搭精修"}
+  }]
+}

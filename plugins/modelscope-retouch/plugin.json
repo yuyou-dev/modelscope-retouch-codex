@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "modelscope-retouch",
+  "version": "0.1.0",
+  "description": "通过魔搭云端 MCP 精修用户图片并返回真实结果，无需使用者登录魔搭或配置 Token。",
+  "extensions": {"com.openai": {
+    "skills": "./skills/",
+    "mcpServers": "./.mcp.json",
+    "requires_local_executor": true
+  }}
+}

@@ -11,7 +11,7 @@ from mcp.server.fastmcp import FastMCP
 from mcp.types import ToolAnnotations
 from starlette.responses import JSONResponse
 
-BUILD_VERSION = "0.3.0"
+BUILD_VERSION = "0.3.1"
 INSTANCE_ID = str(uuid.uuid4())
 mcp = FastMCP(
     "modelscope-minimal-mcp",
@@ -61,6 +61,11 @@ def create_app():
             supplied = request.headers.get("x-mcp-operator-token", "")
             if not expected or not hmac.compare_digest(supplied, expected):
                 return JSONResponse({"error": "unauthorized"}, status_code=401)
+            # This service returns JSON and never sends unsolicited events.
+            # A long-lived GET occupies a Studio gateway invocation needlessly.
+            if request.method == "GET":
+                return JSONResponse({"error": "server_events_not_supported"},
+                                    status_code=405, headers={"Allow": "POST"})
         return await call_next(request)
 
     app.add_middleware(BaseHTTPMiddleware, dispatch=require_operator)
