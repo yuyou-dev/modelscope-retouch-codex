@@ -1,0 +1,10 @@
+{
+  "name": "modelscope-jewelry-retouch-bridge",
+  "version": "0.1.0",
+  "description": "Credential-isolated ModelScope hosted bridge for jewelry retouch MCP",
+  "type": "module",
+  "bin": {"modelscope-jewelry-retouch-bridge": "./bridge.mjs"},
+  "engines": {"node": ">=20"},
+  "files": ["bridge.mjs", "transport.mjs", "README.md"],
+  "repository": {"type": "git", "url": "git+https://github.com/yuyou-dev/modelscope-retouch-codex.git", "directory": "cloud-bridge"}
+}
