@@ -100,7 +100,7 @@ export function createAdapter({fetchFn = fetch, readImageFn = readImage, gapMs =
     // Deliberately no Authorization, credential lookup, redirect, or automatic retry.
     const response = await fetchFn(ENDPOINT, {method: 'POST', headers, body,
       redirect: 'error', signal: AbortSignal.timeout(55000)});
-    if (!response.ok) { await response.body?.cancel(); throw Error('UPSTREAM_HTTP_FAILED'); }
+    if (!response.ok) { await response.body?.cancel(); throw Error(`UPSTREAM_HTTP_FAILED_${response.status}`); }
     if (!Object.hasOwn(request, 'id')) { await response.body?.cancel(); return null; }
     const result = await responseForId(response, request.id);
     if (request.method === 'initialize' && result.result) {

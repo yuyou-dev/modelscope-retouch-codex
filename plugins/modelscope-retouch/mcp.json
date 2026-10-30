@@ -1,9 +1,0 @@
-{
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
-  "mcpServers": {"modelscope_retouch": {
-    "type": "stdio",
-    "command": "node",
-    "args": ["./connector.mjs"],
-    "cwd": "."
-  }}
-}
