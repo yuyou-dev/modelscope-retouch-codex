@@ -1,6 +1,10 @@
 # 魔搭珠宝精修 · Codex 插件
 
-版本 0.2.0：GitHub 分发插件，Codex 技能调用插件内的 HTTPS 客户端，魔搭云端完成精修并返回真实图片。使用者无需魔搭账号、Token 或 NPM 账号；需要 Codex CLI、Node.js 20+ 和可用网络。
+## 一句话交给 Codex 安装
+
+> 请按 [https://raw.githubusercontent.com/yuyou-dev/modelscope-retouch-codex/v0.2.1/START_HERE.md](https://raw.githubusercontent.com/yuyou-dev/modelscope-retouch-codex/v0.2.1/START_HERE.md) 更新并连接「魔搭精修插件」，完成连接检查后等待我上传图片并测试白底精修。
+
+版本 0.2.1：GitHub 分发插件，Codex 技能调用插件内的 HTTPS 客户端，魔搭云端完成精修并返回真实图片。使用者无需魔搭账号、Token 或 NPM 账号；需要 Codex CLI、Node.js 20+ 和可用网络。
 
 ## 安装与使用
 
@@ -18,7 +22,7 @@ codex plugin marketplace upgrade modelscope-retouch-cloud --json
 codex plugin add modelscope-retouch@modelscope-retouch-cloud --json
 ```
 
-确认安装返回版本为 `0.2.0`，随后在 Codex 中启用插件并打开新对话。
+确认安装返回版本为 `0.2.1`，随后在 Codex 中启用插件并打开新对话。
 
 在 Codex 中启用插件后打开新对话。提供本机可读取的图片附件或绝对路径，发送：
 

@@ -33,13 +33,13 @@ async function saveReceipt(value) {
   await writeFile(resolve(output, `${runId}.json`), JSON.stringify(value,null,2));
   console.log(JSON.stringify(value));
 }
-await rpc('initialize',{protocolVersion:'2024-11-05', capabilities:{},clientInfo:{name:'modelscope-retouch-plugin-client',version:'0.2.0'}});
+await rpc('initialize',{protocolVersion:'2024-11-05', capabilities:{},clientInfo:{name:'modelscope-retouch-plugin-client',version:'0.2.1'}});
 await forward({jsonrpc:'2.0',method:'notifications/initialized'});
 const list = await rpc('tools/list',{});
 console.log(JSON.stringify({anonymous:true, tools:list.tools.map(tool=>tool.name)}));
 let state;
 if (mode === 'submit') {
-  await writeFile(resolve(output, `${runId}.request.json`), JSON.stringify({run_id:runId,image_path:imagePath,instruction,backend_prefix:'精修图片中的饰品',client_version:'0.2.0'},null,2));
+  await writeFile(resolve(output, `${runId}.request.json`), JSON.stringify({run_id:runId,image_path:imagePath,instruction,backend_prefix:'精修图片中的饰品',client_version:'0.2.1'},null,2));
   state = receipt(await call('retouch_submit',{run_id:runId,image_path:imagePath,instruction}));
   await saveReceipt(state);
 }
